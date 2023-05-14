@@ -1,6 +1,45 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const generateReadMe = ({ name, email, github, description, license, install, tests, repo, contributing }) =>
+`#${name}
+[Github license]
+
+## Description
+${description}
+
+## Table of Contents
+
+[Installation]
+
+[Usage]
+
+[License]
+
+[Contributing]
+
+[Tests]
+
+[Questions]
+
+## Installation
+${install}
+
+## Usage
+${repo}
+
+## License
+${license}
+
+## Contributing
+${contributing}
+
+## Tests
+${tests}
+
+## Questions
+<p>If you have any questions about the repo, open any issue or contact me directly at ${email}. You can find more of my work at ${github}.`
+
 inquirer
   .prompt([
     {
@@ -31,7 +70,7 @@ inquirer
     {
       type: 'input',
       message: 'What command should be run to install dependencies?',
-      name: 'dependencies',
+      name: 'install',
     },
     {
       type: 'input',
@@ -51,7 +90,7 @@ inquirer
   ])
   .then((answers) => {
     const readMeContent = generateReadMe(answers);
-    
+
     fs.writeFile('README.md', readMeContent, (err) =>
     err ? console.log(err) : console.log('Successfully created README.md!')
     );
