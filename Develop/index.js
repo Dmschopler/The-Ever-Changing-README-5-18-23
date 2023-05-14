@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 const generateReadMe = ({ name, email, github, description, license, install, tests, repo, contributing }) =>
-`#${name}
+`# ${name}
 [Github license]
 
 ## Description
@@ -10,17 +10,17 @@ ${description}
 
 ## Table of Contents
 
-[Installation]
+Installation
 
-[Usage]
+Usage
 
-[License]
+License
 
-[Contributing]
+Contributing
 
-[Tests]
+Tests
 
-[Questions]
+Questions
 
 ## Installation
 ${install}
@@ -38,7 +38,7 @@ ${contributing}
 ${tests}
 
 ## Questions
-<p>If you have any questions about the repo, open any issue or contact me directly at ${email}. You can find more of my work at ${github}.`
+If you have any questions about the repo, open any issue or contact me directly at ${email}. You can find more of my work at ${github}.`
 
 inquirer
   .prompt([
