@@ -1,9 +1,34 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
+const renderLicenseBadge = (license) => {
+  if (license !== 'Unlicensed') {
+    return `![License](https://img.shields.io/static/v1?label=LICENSE&message=${license}&color=brightgreen)`
+  }
+  else {
+    return "";
+  }
+}
+
+const renderLicenseLink = (license) => {
+  if (license !== 'Unlicensed') {
+    return `[License Page](https://opensource.org/license/${license.toLowerCase()})`
+  }
+  else {
+    return "";
+  }
+}
+
+const renderLicenseSection = (license) => {
+  if (license !== 'Unlicensed') {
+    return `License Distributed under the ${license} License. See ${renderLicenseLink(license)} for more information.`
+  };
+}
+
 const generateReadMe = ({ name, email, github, description, license, install, tests, repo, contributing }) =>
 `# ${name}
-[Github license]
+
+${renderLicenseBadge(license)}
 
 ## Description
 ${description}
@@ -25,7 +50,7 @@ ${install}
 ${repo}
 
 ## License
-${license}
+${renderLicenseSection(license)}
 
 ## Contributing
 ${contributing}
@@ -94,15 +119,3 @@ inquirer
   });
 
 
-
-// TODO: Create an array of questions for user input
-const questions = [];
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
