@@ -9,18 +9,14 @@ const generateReadMe = ({ name, email, github, description, license, install, te
 ${description}
 
 ## Table of Contents
-
-Installation
-
-Usage
-
-License
-
-Contributing
-
-Tests
-
-Questions
+<ul>
+  <li><a href="#installation">Installation</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#license">License</a></li>
+  <li><a href="#contributing">Contributing</a></li>
+  <li><a href="#tests">Tests</a></li>
+  <li><a href="#questions">Questions</a></li>
+</ul>
 
 ## Installation
 ${install}
@@ -38,7 +34,7 @@ ${contributing}
 ${tests}
 
 ## Questions
-If you have any questions about the repo, open any issue or contact me directly at ${email}. You can find more of my work at ${github}.`
+If you have any questions about the repo, open any issue or contact me directly at ${email}. You can find more of my work at [${github}](https://github.com/${github}/).`
 
 inquirer
   .prompt([
@@ -63,9 +59,10 @@ inquirer
       name: 'description',
     },
     {
-      type: 'input',
+      type: 'list',
       message: 'What kind of license should your project have?',
       name: 'license',
+      choices: ['MIT', 'GPL-2-0', 'Apache-2-0', 'Unlicensed']
     },
     {
       type: 'input',
