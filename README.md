@@ -5,3 +5,5 @@ This application was created to allow an easy way for developers to create a fun
 ## Video of Application
 
 Below is a video that demonstrates how to use the README generator and what type of README it will create.
+
+[README Example Video](assets/README-Generator-Example.webm)
